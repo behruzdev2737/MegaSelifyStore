@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "store.supercell.com",
       },
+      {
+        protocol:'https',
+        hostname:'game-assets.store.supercell.com'
+      },
     ],
   },
 };

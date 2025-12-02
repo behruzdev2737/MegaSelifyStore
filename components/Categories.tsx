@@ -81,7 +81,7 @@ const Categories = () => {
           className="rounded-2xl"
         />
       </div>
-      <div className="flex gap-3 justify-center py-3">
+      <div className="flex gap-3 justify-center py-3 mb-10">
         <Link href={'https://apps.apple.com/ru/developer/supercell/id488106216'} className="flex items-center gap-2 border border-black rounded-xl px-3 py-2 w-[150px] bg-black">
           <Image src={Apple_logo} alt="Apple logo" width={35} height={35} />
           <div>
