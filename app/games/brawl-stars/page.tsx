@@ -1,9 +1,13 @@
+"use client";
+
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import brawlpassplus from "@/app/assets/59144ca6-dbf7-4521-bf6b-0713887e4e7f.png";
 import gemIcon from "@/app/assets/gem.png";
 import skinIcon from "@/app/assets/skin_icon.png";
+import BuyModal from "@/components/BuyMadal";
+import { useState } from "react";
 
 export default function BrawlPassCards() {
   const cards = [
@@ -123,6 +127,13 @@ export default function BrawlPassCards() {
       price: "110.000 som",
     },
   ];
+  const [selected, setSelected] = useState(null);
+  const [open, setOpen] = useState(false);
+
+  const buy = (item:any) => {
+    setSelected(item);
+    setOpen(true);
+  };
 
   return (
     <div className="w-full flex justify-center items-center bg-gradient-to-b from-purple-600 to-purple-900 p-6 py-20">
@@ -156,7 +167,10 @@ export default function BrawlPassCards() {
                   {item.points}
                 </span>
 
-                <Button className="w-full text-lg font-bold py-6 rounded-xl shadow-lg">
+                <Button
+                  className="w-full text-lg font-bold py-6 rounded-xl shadow-lg"
+                  onClick={() => buy(item)}
+                >
                   {item.price}
                 </Button>
               </CardContent>
@@ -189,7 +203,10 @@ export default function BrawlPassCards() {
                   {item.points}
                 </span>
 
-                <Button className="w-full text-lg font-bold py-6 rounded-xl shadow-lg">
+                <Button
+                  className="w-full text-lg font-bold py-6 rounded-xl shadow-lg"
+                  onClick={() => buy(item)}
+                >
                   {item.price}
                 </Button>
               </CardContent>
@@ -224,13 +241,21 @@ export default function BrawlPassCards() {
                   {item.points}
                 </span>
 
-                <Button className="w-full text-lg font-bold py-6 rounded-xl shadow-lg">
+                <Button
+                  className="w-full text-lg font-bold py-6 rounded-xl shadow-lg"
+                  onClick={() => buy(item)}
+                >
                   {item.price}
                 </Button>
               </CardContent>
             </Card>
           ))}
         </div>
+        <BuyModal
+          product={selected}
+          open={open}
+          onClose={() => setOpen(false)}
+        />
       </div>
     </div>
   );
