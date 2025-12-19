@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Check } from "lucide-react";
+import { toast } from "react-toastify";
 
 export default function CheckPage() {
   const [loading, setLoading] = useState(true);
@@ -15,6 +16,14 @@ export default function CheckPage() {
 
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    if (success) {
+      toast.success(
+        "Buyurtma yuborildi, tez orada admin siz bilan boglanadi"
+      );
+    }
+  }, [success]);
 
   return (
     <div className="min-h-[700px] flex items-center justify-center bg-gradient-to-b from-purple-700 to-purple-900">

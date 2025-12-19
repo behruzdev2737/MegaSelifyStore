@@ -32,8 +32,6 @@ export default function BuyModal({ product, open, onClose }: any) {
         phone,
       }),
     });
-
-    toast.success("Buyurtma yuborildi tez orada admin siz bilan boglanadi");
     onClose();
   };
 
