@@ -39,10 +39,10 @@ export default function CheckPage() {
           <div className="w-24 h-24 rounded-full bg-green-500 flex items-center justify-center animate-bounce">
             <Check size={50} className="text-white" />
           </div>
-          <h1 className="text-2xl font-bold text-white">
+          <h1 className="text-[15px] font-bold text-white md:text-2xl">
             Buyurtma muvaffaqiyatli qabul qilindi!
           </h1>
-          <p className="text-xl font-bold text-gray-300">@vetsu_admin telegramdan yozishini kuting!</p>
+          <p className="text-[10px] font-bold text-gray-300 md:text-2xl">@vetsu_admin telegramdan yozishini kuting!</p>
         </div>
       ) : null}
     </div>
