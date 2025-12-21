@@ -64,6 +64,7 @@ export default function SupportPage() {
           <Link
             href="https://t.me/vetsu_admin"
             className="bg-white text-black px-5 py-2 rounded-xl font-semibold"
+            
           >
             Telegram Support
           </Link>
