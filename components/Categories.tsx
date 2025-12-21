@@ -1,6 +1,8 @@
 import { categories } from "@/utils/data";
 import Image from "next/image";
 import Link from "next/link";
+
+
 import Brawl_stars from "@/app/assets/BrawlStars.jpg";
 import clash_of_clans from "@/app/assets/clash of clans.jpg";
 import clash_royal from "@/app/assets/clashroyal.jpg";
