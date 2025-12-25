@@ -8,6 +8,7 @@ import gemIcon from "@/app/assets/gem.png";
 import skinIcon from "@/app/assets/skin_icon.png";
 import BuyModal from "@/components/BuyMadal";
 import { useState } from "react";
+import GradientText from "@/components/GradientText";
 
 export default function BrawlPassCards() {
   const cards = [
@@ -130,7 +131,7 @@ export default function BrawlPassCards() {
   const [selected, setSelected] = useState(null);
   const [open, setOpen] = useState(false);
 
-  const buy = (item:any) => {
+  const buy = (item: any) => {
     setSelected(item);
     setOpen(true);
   };
@@ -138,18 +139,35 @@ export default function BrawlPassCards() {
   return (
     <div className="w-full flex justify-center items-center bg-gradient-to-b from-purple-600 to-purple-900 p-6 py-20">
       <div>
-        <div className="flex items-center justify-center gap-5 py-6">
-          <Image
-            src={brawlpassplus}
-            alt={"brawl pass plus"}
-            className="w-[60px]"
-          />
-          <h1 className="font-bold text-3xl">Premium Passlar</h1>
+        <div className="flex justify-center gap-5 py-6">
+          <div className="flex items-center gap-5">
+            <Image
+              src={brawlpassplus}
+              alt="brawl pass plus"
+              width={60}
+              height={60}
+            />
+
+            <GradientText
+              colors={["#FFECB3", "#FFD54F", "#FFB300", "#FFD54F", "#FFECB3"]}
+              animationSpeed={2}
+              showBorder={false}
+              className="text-3xl font-bold leading-none"
+            >
+              PREMIUM PASSLAR
+            </GradientText>
+          </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full ">
           {cards.map((item, i) => (
-            <Card key={i} className={`rounded-2xl shadow-xl p-4 ${item.bg}`}>
-              <CardContent className="flex flex-col items-center text-center gap-4">
+            <Card
+              key={i}
+              className={`rounded-2xl shadow-xl p-4
+        bg-white overflow-hidden 
+        transition-transform duration-300 hover:scale-[1.05]
+        cursor-pointer ${item.bg}`}
+            >
+              <CardContent className="flex flex-col items-center text-center gap-4 ">
                 <h2 className="text-3xl font-extrabold text-white drop-shadow">
                   {item.title}
                 </h2>
@@ -184,7 +202,12 @@ export default function BrawlPassCards() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full">
           {gems.map((item, i) => (
-            <Card key={i} className={`rounded-2xl shadow-xl p-4 ${item.bg}`}>
+            <Card
+              key={i}
+              className={`rounded-2xl shadow-xl p-4 bg-white overflow-hidden 
+        transition-transform duration-300 hover:scale-[1.05]
+        cursor-pointer ${item.bg}`}
+            >
               <CardContent className="flex flex-col items-center text-center gap-4">
                 <h2 className="text-3xl font-extrabold text-white drop-shadow">
                   {item.title}
@@ -220,7 +243,12 @@ export default function BrawlPassCards() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full">
           {skins.map((item, i) => (
-            <Card key={i} className={`rounded-2xl shadow-xl p-4 ${item.bg}`}>
+            <Card
+              key={i}
+              className={`rounded-2xl shadow-xl p-4 overflow-hidden 
+        transition-transform duration-300 hover:scale-[1.05] bg-amber-300
+        cursor-pointer`}
+            >
               <CardContent className="flex flex-col items-center text-center gap-4">
                 <h2 className="text-3xl font-extrabold text-white drop-shadow">
                   {item.title}
