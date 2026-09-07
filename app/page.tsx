@@ -1,10 +1,12 @@
 import Categories from "@/components/Categories";
-
+import SplashScreen from "@/components/SplashScreen";
 
 export default function Home() {
   return (
     <main>
-      <Categories />
+      <SplashScreen>
+        <Categories />
+      </SplashScreen>
     </main>
   );
 }

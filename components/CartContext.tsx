@@ -1,17 +1,18 @@
 "use client";
 
 import React, { createContext, useContext, useState, ReactNode } from "react";
+import { StaticImageData } from "next/image";
 
 export type CartItem = {
   title: string;
   price: string;
-  img?: any;
+  img?: string | StaticImageData;
   quantity: number;
 };
 
 interface CartContextType {
   cart: CartItem[];
-  addToCart: (item: Omit<CartItem, 'quantity'>) => void;
+  addToCart: (item: Omit<CartItem, "quantity">) => void;
   removeFromCart: (title: string) => void;
   clearCart: () => void;
   isCartOpen: boolean;
@@ -24,7 +25,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
-  const addToCart = (item: Omit<CartItem, 'quantity'>) => {
+  const addToCart = (item: Omit<CartItem, "quantity">) => {
     setCart((prev) => {
       const existing = prev.find((i) => i.title === item.title);
       if (existing) {

@@ -10,15 +10,17 @@ const Categories = () => {
   return (
     <div className="bg-[#0e1219] min-h-screen text-white pb-10">
       <div className="max-w-6xl mx-auto py-12 px-4 flex flex-wrap gap-6 justify-center md:justify-start">
-        {categories.map((cat) => (
+        {categories.map((cat, i) => (
           <Link key={cat.id} href={`/games/${cat.slug}`}>
             <div
               className="
                 w-[220px] h-[300px] flex flex-col
                 rounded-[24px] overflow-hidden 
-                transition-transform duration-200 hover:scale-105 hover:brightness-110
+                transition-all duration-300 hover:scale-105 hover:brightness-110
                 cursor-pointer bg-[#0f0f11] shadow-lg
+                animate-in fade-in zoom-in-95 duration-700 fill-mode-both
               "
+              style={{ animationDelay: `${i * 150}ms` }}
             >
               {/* Image part */}
               <div className="relative w-full h-[240px]">
