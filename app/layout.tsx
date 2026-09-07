@@ -3,8 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import {ToastContainer} from 'react-toastify'
-
+import { ToastContainer } from "react-toastify";
+import { CartProvider } from "@/components/CartContext";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -27,14 +27,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          src="https://telegram.org/js/telegram-web-app.js"
+          async
+        ></script>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header/>
-        {children}
-        <ToastContainer/>
-        <Footer/>
-        </body>
+        <CartProvider>
+          <Header />
+          {children}
+          <ToastContainer />
+          <Footer />
+        </CartProvider>
+      </body>
     </html>
   );
 }

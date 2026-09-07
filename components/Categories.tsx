@@ -1,107 +1,97 @@
 import { categories } from "@/utils/data";
 import Image from "next/image";
 import Link from "next/link";
-
-
 import Brawl_stars from "@/app/assets/BrawlStars.jpg";
-import clash_of_clans from "@/app/assets/clash of clans.jpg";
-import clash_royal from "@/app/assets/clashroyal.jpg";
-import moco from "@/app/assets/moco.jpg";
-import hay_day from "@/app/assets/hay day.jpg";
+
 import Apple_logo from "@/app/assets/Apple logo.png";
 import PlayMarket from "@/app/assets/play market.jpg";
 
 const Categories = () => {
   return (
-    <div className="">
-      <div className="max-w-3xl mx-auto py-6 grid grid-cols-1 gap-9 place-items-center md:grid-cols-2">
+    <div className="bg-[#0e1219] min-h-screen text-white pb-10">
+      <div className="max-w-6xl mx-auto py-12 px-4 flex flex-wrap gap-6 justify-center md:justify-start">
         {categories.map((cat) => (
           <Link key={cat.id} href={`/games/${cat.slug}`}>
             <div
               className="
-       w-[350px]
-        bg-white rounded-3xl overflow-hidden shadow-lg 
-        transition-transform duration-300 hover:scale-[1.03]
-        cursor-pointer
-      "
+                w-[220px] h-[300px] flex flex-col
+                rounded-[24px] overflow-hidden 
+                transition-transform duration-200 hover:scale-105 hover:brightness-110
+                cursor-pointer bg-[#0f0f11] shadow-lg
+              "
             >
-              <div className="w-full h-[180px] relative">
+              {/* Image part */}
+              <div className="relative w-full h-[240px]">
                 <Image
                   src={cat.image}
-                  alt={cat.slug}
+                  alt={cat.name}
                   fill
                   className="object-cover"
+                  sizes="220px"
                 />
               </div>
 
-              <div className="bg-white p-5 flex items-center gap-3">
-                <span className="text-xl text-black">→</span>
-                <p className="text-lg font-medium text-black">{cat.name}</p>
+              {/* Text part (Black footer) */}
+              <div className="w-full h-[60px] bg-[#0c0c0e] flex items-center px-5">
+                <p className="text-[17px] font-bold text-white tracking-wide">
+                  {cat.name}
+                </p>
               </div>
             </div>
           </Link>
         ))}
       </div>
 
-      <div className="flex justify-center py-[30px] text-4xl font-bold text-black">
+      <div className="flex justify-center py-[30px] text-4xl font-bold text-white">
         Bizning oyinlar
       </div>
-      <div className="max-w-3xs mx-auto py-3 px-7 grid grid-cols-3 justify-items-center gap-1">
+      <div className="max-w-md mx-auto py-6 px-4 flex justify-center gap-4">
         <Image
           src={Brawl_stars}
           alt="brawl_stars"
           width={50}
           height={50}
-          className="rounded-2xl"
-        />
-        <Image
-          src={clash_of_clans}
-          alt="clash_of_clans"
-          width={50}
-          height={50}
-          className="rounded-2xl"
-        />
-        <Image
-          src={clash_royal}
-          alt="clash_royal"
-          width={50}
-          height={50}
-          className="rounded-2xl"
-        />
-        <Image
-          src={moco}
-          alt="moco"
-          width={50}
-          height={50}
-          className="rounded-2xl"
-        />
-        <Image
-          src={hay_day}
-          alt="hay_day"
-          width={50}
-          height={50}
-          className="rounded-2xl"
+          className="rounded-2xl shadow-lg hover:scale-110 transition-transform cursor-pointer border border-white/10"
         />
       </div>
-      <div className="flex gap-3 justify-center py-3 mb-10">
-        <Link href={'https://apps.apple.com/ru/developer/supercell/id488106216'} className="flex items-center gap-2 border border-black rounded-xl px-3 py-2 w-[150px] bg-black">
-          <Image src={Apple_logo} alt="Apple logo" width={35} height={35} />
-          <div>
-            <p className="text-[10px] font-semibold">Yuklash</p>
-            <h1 className="text-sm font-bold">App Store</h1>
+      <div className="flex gap-4 justify-center py-6 mb-10 px-4 flex-wrap">
+        <Link
+          href={"https://apps.apple.com/ru/developer/supercell/id488106216"}
+          className="flex items-center gap-3 border border-white/20 rounded-2xl px-4 py-3 w-[170px] bg-white/5 hover:bg-white/10 transition-colors backdrop-blur-md"
+        >
+          <Image
+            src={Apple_logo}
+            alt="Apple logo"
+            width={30}
+            height={30}
+            className="invert"
+          />
+          <div className="text-left">
+            <p className="text-[10px] font-medium text-gray-300">Yuklash</p>
+            <h1 className="text-sm font-bold text-white leading-tight">
+              App Store
+            </h1>
           </div>
         </Link>
 
-        <Link href={'https://play.google.com/store/apps/dev?id=6715068722362591614&hl=ru'} className="flex items-center gap-2 border border-black rounded-xl px-3 py-2 w-[150px] bg-black">
+        <Link
+          href={
+            "https://play.google.com/store/apps/dev?id=6715068722362591614&hl=ru"
+          }
+          className="flex items-center gap-3 border border-white/20 rounded-2xl px-4 py-3 w-[170px] bg-white/5 hover:bg-white/10 transition-colors backdrop-blur-md"
+        >
           <Image
             src={PlayMarket}
             alt="Play Market logo"
-            width={35}
-            height={35}
+            width={30}
+            height={30}
+            className="rounded-md"
           />
-          <div>
-            <p className="text-[10px] font-semibold">Yuklash</p>
-            <h1 className="text-sm font-bold">Play Market</h1>
+          <div className="text-left">
+            <p className="text-[10px] font-medium text-gray-300">Yuklash</p>
+            <h1 className="text-sm font-bold text-white leading-tight">
+              Play Market
+            </h1>
           </div>
         </Link>
       </div>

@@ -44,7 +44,8 @@
 }
 
 body {
-  background: var(--background);
+  background: #0e1219;
+  color: white;
 }
 
 :root {

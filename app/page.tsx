@@ -1,10 +1,10 @@
 import Categories from "@/components/Categories";
-import Link from "next/link";
 
-export default function Header() {
+
+export default function Home() {
   return (
-   <div>
-    <Categories/>
-   </div>
+    <main>
+      <Categories />
+    </main>
   );
 }
